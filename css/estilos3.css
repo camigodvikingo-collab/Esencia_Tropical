@@ -1,0 +1,279 @@
+/*=========================================================
+                PRODUCTO DESTACADO
+=========================================================*/
+
+.destacado {
+    width: 90%;
+    margin: 120px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 60px;
+    align-items: center;
+}
+
+.imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagen img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 30px;
+    box-shadow: var(--sombra);
+    transition: all .5s ease;
+}
+
+.imagen img:hover {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, .25);
+}
+
+.texto {
+    padding: 20px;
+}
+
+.texto h2 {
+    color: var(--verde);
+    font-size: 42px;
+    margin-bottom: 25px;
+}
+
+.texto p {
+    font-size: 20px;
+    line-height: 34px;
+    text-align: justify;
+    margin-bottom: 35px;
+}
+
+.texto a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: var(--verde);
+    padding: 16px 35px;
+    border-radius: 40px;
+    transition: .4s;
+    font-weight: 600;
+}
+
+.texto a:hover {
+    background: var(--naranja);
+    transform: translateY(-6px);
+}
+
+
+/*=========================================================
+                BENEFICIOS
+=========================================================*/
+
+.beneficios {
+    width: 90%;
+    margin: 120px auto;
+    text-align: center;
+}
+
+.beneficios h2 {
+    color: var(--verde);
+    font-size: 48px;
+    margin-bottom: 60px;
+}
+
+.contenedorBeneficios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 35px;
+}
+
+.beneficio {
+    background: white;
+    padding: 45px 30px;
+    border-radius: 25px;
+    box-shadow: var(--sombra);
+    transition: all .4s ease;
+    cursor: pointer;
+}
+
+.beneficio:hover {
+    transform: translateY(-15px);
+    background: linear-gradient( 135deg, #FFF8E1, #FFFDE7);
+}
+
+.beneficio h3 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: var(--verde);
+}
+
+
+/*=========================================================
+            TARJETAS DECORATIVAS
+=========================================================*/
+
+.beneficio::before {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 5px;
+    background: var(--amarillo2);
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+
+/*=========================================================
+        EFECTO AL PASAR EL CURSOR
+=========================================================*/
+
+.beneficio:hover h3 {
+    color: var(--naranja);
+}
+
+.beneficio:hover {
+    box-shadow: 0 25px 45px rgba(0, 0, 0, .20);
+}
+
+
+/*=========================================================
+            ANIMACIÓN SUAVE
+=========================================================*/
+
+.beneficio {
+    animation: subir 1s ease;
+}
+
+@keyframes subir {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/*=========================================================
+          EFECTO ICONOS
+=========================================================*/
+
+.beneficio:hover {
+    animation: rebote .7s;
+}
+
+@keyframes rebote {
+    0% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-12px);
+    }
+    60% {
+        transform: translateY(5px);
+    }
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+
+/*=========================================================
+            FONDO DECORATIVO
+=========================================================*/
+
+.beneficios {
+    position: relative;
+}
+
+.beneficios::before {
+    content: "🍃";
+    position: absolute;
+    left: 5%;
+    top: -40px;
+    font-size: 90px;
+    opacity: .10;
+}
+
+.beneficios::after {
+    content: "🥭";
+    position: absolute;
+    right: 5%;
+    bottom: -30px;
+    font-size: 90px;
+    opacity: .10;
+}
+
+
+/*=========================================================
+            DESTACADO RESPONSIVO
+=========================================================*/
+
+.destacado .texto {
+    animation: aparecer 1.2s;
+}
+
+.destacado .imagen {
+    animation: aparecer 1.5s;
+}
+
+
+/*=========================================================
+            EFECTO BOTÓN
+=========================================================*/
+
+.texto a {
+    position: relative;
+    overflow: hidden;
+}
+
+.texto a::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(255, 255, 255, .25);
+    transition: .5s;
+}
+
+.texto a:hover::before {
+    width: 100%;
+}
+
+
+/*=========================================================
+            BORDES DECORATIVOS
+=========================================================*/
+
+.imagen {
+    position: relative;
+}
+
+.imagen::before {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    border: 4px solid var(--amarillo2);
+    border-radius: 35px;
+    z-index: -1;
+    top: 25px;
+    left: 25px;
+}
+
+
+/*=========================================================
+            EFECTO DE APARICIÓN
+=========================================================*/
+
+.destacado {
+    animation: aparecer 1.2s;
+}
+
+.beneficios {
+    animation: aparecer 1.5s;
+}

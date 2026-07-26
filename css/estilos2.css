@@ -1,0 +1,407 @@
+/*=========================================================
+        ESCENCIA TROPICAL
+        estilos2.css
+        CÍRCULOS INTERACTIVOS
+=========================================================*/
+
+
+/*==========================
+        CONTENEDOR
+==========================*/
+
+.circulos {
+    width: 90%;
+    max-width: 1300px;
+    margin: 90px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 45px;
+}
+
+
+/*==========================
+        TARJETA
+==========================*/
+
+.circulo {
+    width: 250px;
+    height: 250px;
+    perspective: 1200px;
+}
+
+
+/*==========================
+        CONTENIDO
+==========================*/
+
+.contenido-circulo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform .9s;
+}
+
+
+/*==========================
+        GIRO
+==========================*/
+
+.circulo:hover .contenido-circulo {
+    transform: rotateY(180deg);
+}
+
+
+/*==========================
+        CARAS
+==========================*/
+
+.cara {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 25px;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+
+
+/*=========================================================
+            CARA FRONTAL
+=========================================================*/
+
+.frontal {
+    background: linear-gradient(135deg, #FFD54F, #FF9800);
+    color: #ffffff;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .20);
+}
+
+.frontal i {
+    font-size: 65px;
+    margin-bottom: 18px;
+}
+
+.frontal h2 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+
+/*=========================================================
+            CARA TRASERA
+=========================================================*/
+
+.trasera {
+    background: #ffffff;
+    color: #2E7D32;
+    transform: rotateY(180deg);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .20);
+}
+
+.trasera h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #2E7D32;
+}
+
+.trasera p {
+    font-size: 16px;
+    line-height: 28px;
+    color: #555;
+}
+
+
+/*=========================================================
+            VIDEO
+=========================================================*/
+
+.trasera video {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/*=========================================================
+            BOTÓN SUSCRIPCIÓN
+=========================================================*/
+
+#btnSuscribirse {
+    background: #2E7D32;
+    color: #ffffff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 40px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .35s;
+}
+
+#btnSuscribirse:hover {
+    background: #F57C00;
+    transform: scale(1.08);
+}
+
+
+/*=========================================================
+            COLORES INDIVIDUALES
+=========================================================*/
+
+.circulo:nth-child(1) .frontal {
+    background: linear-gradient(135deg, #43A047, #66BB6A);
+}
+
+.circulo:nth-child(2) .frontal {
+    background: linear-gradient(135deg, #FB8C00, #FDD835);
+}
+
+.circulo:nth-child(3) .frontal {
+    background: linear-gradient(135deg, #039BE5, #29B6F6);
+}
+
+.circulo:nth-child(4) .frontal {
+    background: linear-gradient(135deg, #8E24AA, #BA68C8);
+}
+
+
+/*=========================================================
+            EFECTO LUMINOSO
+=========================================================*/
+
+.circulo::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    background: linear-gradient( 45deg, #43A047, #FDD835, #FB8C00, #29B6F6, #8E24AA);
+    filter: blur(18px);
+    opacity: 0;
+    transition: .45s;
+    z-index: -1;
+}
+
+.circulo:hover::before {
+    opacity: 1;
+}
+
+
+/*=========================================================
+            SOMBRA
+=========================================================*/
+
+.circulo {
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, .20));
+}
+
+
+/*=========================================================
+            FLOTACIÓN
+=========================================================*/
+
+@keyframes flotar {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-18px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.circulo {
+    animation: flotar 5s ease-in-out infinite;
+}
+
+.circulo:nth-child(1) {
+    animation-delay: .2s;
+}
+
+.circulo:nth-child(2) {
+    animation-delay: .6s;
+}
+
+.circulo:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.circulo:nth-child(4) {
+    animation-delay: 1.4s;
+}
+
+
+/*=========================================================
+            EFECTO HOVER
+=========================================================*/
+
+.circulo:hover {
+    transform: scale(1.05);
+    transition: .35s;
+}
+
+
+/*=========================================================
+            ENTRADA
+=========================================================*/
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.circulo {
+    animation: aparecer .8s ease forwards;
+}
+
+.circulo:nth-child(1) {
+    animation-delay: .2s;
+}
+
+.circulo:nth-child(2) {
+    animation-delay: .4s;
+}
+
+.circulo:nth-child(3) {
+    animation-delay: .6s;
+}
+
+.circulo:nth-child(4) {
+    animation-delay: .8s;
+}
+
+
+/*=========================================================
+            AJUSTES FINALES
+=========================================================*/
+
+
+/* Centrado perfecto de las dos caras */
+
+.cara {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* Contenedor del contenido */
+
+.cara h2,
+.cara h3,
+.cara p,
+.cara i {
+    margin: 0;
+}
+
+
+/* Iconos */
+
+.frontal i {
+    font-size: 62px;
+    margin-bottom: 18px;
+    display: block;
+}
+
+
+/* Título frontal */
+
+.frontal h2 {
+    margin-top: 5px;
+    line-height: 1.3;
+    text-align: center;
+}
+
+
+/* Cara trasera */
+
+.trasera {
+    padding: 25px;
+}
+
+
+/* Título trasero */
+
+.trasera h3 {
+    margin-bottom: 15px;
+}
+
+
+/* Texto trasero */
+
+.trasera p {
+    width: 100%;
+    text-align: center;
+    line-height: 1.7;
+}
+
+
+/* Video */
+
+.trasera video {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+
+/* Botón */
+
+#btnSuscribirse {
+    min-width: 160px;
+}
+
+
+/* Responsive */
+
+@media(max-width:992px) {
+    .circulos {
+        gap: 35px;
+    }
+    .circulo {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+@media(max-width:768px) {
+    .circulos {
+        flex-direction: column;
+    }
+}
+
+@media(max-width:480px) {
+    .circulo {
+        width: 190px;
+        height: 190px;
+    }
+    .frontal i {
+        font-size: 45px;
+    }
+    .frontal h2 {
+        font-size: 22px;
+    }
+    .trasera h3 {
+        font-size: 20px;
+    }
+    .trasera p {
+        font-size: 14px;
+    }
+}
