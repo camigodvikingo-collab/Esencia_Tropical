@@ -23,15 +23,38 @@
 ===========================*/
 
 @media(max-width:992px) {
-    nav {
-        flex-direction: column;
-        height: auto;
-        padding: 20px 0;
+    /* El nav se mantiene en fila (logo + botón hamburguesa) para no
+       alterar la altura del header, ya que está en position:fixed */
+    .menu-toggle {
+        display: block;
     }
     nav ul {
-        margin-top: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
+        position: absolute;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        background: white;
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        box-shadow: var(--sombra);
+        transition: max-height .45s ease;
+    }
+    nav ul.activo {
+        max-height: 400px;
+    }
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+    nav ul li a {
+        display: block;
+        padding: 16px 0;
+    }
+    nav ul li a::after {
+        display: none;
     }
     .banner {
         height: 75vh;
@@ -71,20 +94,12 @@
 ===========================*/
 
 @media(max-width:768px) {
-    .logo {
-        flex-direction: column;
-        text-align: center;
-    }
     .logo img {
-        width: 60px;
-        height: 60px;
+        width: 55px;
+        height: 55px;
     }
     .logo h2 {
-        font-size: 22px;
-    }
-    nav ul {
-        flex-direction: column;
-        gap: 15px;
+        font-size: 20px;
     }
     .banner {
         height: 65vh;
@@ -195,3 +210,13 @@
         height: 45px;
     }
 }
+
+
+ 
+ 
+    
+
+
+ 
+
+  
